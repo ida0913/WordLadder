@@ -11,12 +11,14 @@ public class WordLadder {
     public HashMap<Integer, String> starting;
     public HashMap<Integer, String> ending;
     public File dictionary;
-    public File input;
+    public File inputFile;
     public Queue<Stack> mainQueue;
 
-    public WordLadder(String dict, String input) {
-        File dictionary = new File(dict);
-        File inputFile = new File(input);
+    public int testLine;// for testLine to trouble shoot
+
+    public WordLadder(String dict, String input, int tempInt) {
+        dictionary = new File(dict);
+        inputFile = new File(input);
         mainQueue = new LinkedList<Stack>();
         starting = new HashMap<Integer, String>();
         ending = new HashMap<Integer, String>();
@@ -43,10 +45,30 @@ public class WordLadder {
 
     }
 
-    
+    public boolean checkIfInDict(String word) {
+        word = word.toLowerCase();
+        try {
+            Scanner scanner = new Scanner(dictionary);
+
+            String scan;
+            while (scanner.hasNext()) {
+                scan = scanner.next().toLowerCase();
+
+                if (word.equals(scan)) {
+                    // System.out.println(scan)
+                    return true;
+                }
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("error in dict file");
+            e.printStackTrace();
+        }
+        return false;
+
+    }
 
     public static void main(String[] args) {
-        WordLadder test = new WordLadder("src/dictionary.txt", "src/input.txt");
+        WordLadder test = new WordLadder("src/dictionary.txt", "src/test.txt", 1);
 
     }
 }
