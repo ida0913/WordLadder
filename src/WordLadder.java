@@ -147,6 +147,15 @@ public class WordLadder {
 
     }
 
+    public boolean alreadyUsed(Stack<String> stack, String a){
+        Stack<String> temp = (Stack<String>) stack.clone();
+        while(!temp.isEmpty()){
+            if(temp.pop().equals(a)) return true;
+        }
+        return false;
+        
+    }
+
     public void stackOneLetterDifferent() {
         Stack<String> stack = mainQueue.poll();
         // Queue<Stack> main = new LinkedList<>();
@@ -157,7 +166,7 @@ public class WordLadder {
             while (scanner.hasNext()) {
                 scan = scanner.next().toLowerCase();
                 // System.out.println(stack);
-                if (isOneLetterDifferent(stack.peek(), scan) && !scan.equals(starting.get(testLine))) {
+                if (isOneLetterDifferent(stack.peek(), scan) && !scan.equals(starting.get(testLine)) && !alreadyUsed(stack, scan)) {
 
                     Stack<String> tempStack = (Stack<String>) stack.clone();
 
@@ -194,6 +203,7 @@ public class WordLadder {
     public static void main(String[] args) {
         WordLadder test = new WordLadder("src/dictionary.txt", "src/test.txt", 1);
         while(!test.checkIfSolved()){
+            System.out.println(test.mainQueue);
             test.stackOneLetterDifferent();
         }
         System.out.println(test.ladder);
