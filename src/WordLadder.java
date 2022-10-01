@@ -44,7 +44,7 @@ public class WordLadder {
         }
 
     }
-
+    //method to check if the word in question is a real word
     public boolean checkIfInDict(String word) {
         word = word.toLowerCase();
         try {
@@ -66,9 +66,14 @@ public class WordLadder {
         return false;
 
     }
+    //method to check if starting and ending word is same - avoid a shit ton of confusion 
+    public boolean checkIfSame(int line) {
+        return starting.get(line).toLowerCase().equals(ending.get(line).toLowerCase());
+    }
 
     public static void main(String[] args) {
         WordLadder test = new WordLadder("src/dictionary.txt", "src/test.txt", 1);
+        
 
     }
 }
