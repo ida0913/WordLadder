@@ -1,18 +1,5 @@
-## Getting Started
+Two different solutions - one is very basic, easy solution. It takes around 15 - 20 minutes to load words that have >10 words in it's ladder (won't recognize no solutions)
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+Second solution utilises the Breadth-First Traversal in order to find the solution - very efficient, takes seconds to solve any word ladder puzzle and can recognize no solutions
 
-## Folder Structure
-
-The workspace contains two folders by default, where:
-
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
-
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+Running the main methods creates a file with the solution, so if you are going to run it, make sure to delete the output file
