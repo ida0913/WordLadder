@@ -202,17 +202,14 @@ public class WordLadder {
     }
 
     public static void main(String[] args) {
-        // WordLadder test = new WordLadder("src/dictionary.txt", "src/test.txt", 1);
-        // while(!test.checkIfSolved()){
-        //     System.out.println(test.mainQueue);
-        //     test.stackOneLetterDifferent();
-        // }
-        // System.out.println(test.ladder);
+        WordLadder test = new WordLadder("src/dictionary.txt", "src/test.txt", 1);
+        while(!test.checkIfSolved()){
+            System.out.println(test.mainQueue);
+            test.stackOneLetterDifferent();
+        }
+        System.out.println(test.ladder);
         // System.out.println(test.mainQueue);
 
-        String a = "tezt";
-        char[] aChar = a.toCharArray();
-        aChar[2] = (char)(((aChar[2] +1) - 97)%26 + 97);
-        System.out.println(Arrays.toString(aChar));
+       
     }
 }
